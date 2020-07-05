@@ -7,9 +7,9 @@ public class PlayerShip : MonoBehaviour
 
     // ミサイルの発車位置
     public Transform firePoint; 
-    public GameObject missilePrefab;
+    public GameObject missile;
 
-    public float playerSpeed = 5f;
+    [SerializeField]public float playerSpeed = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +31,7 @@ public class PlayerShip : MonoBehaviour
         // Playerのミサイルを生成
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(missilePrefab, firePoint.position, transform.rotation);
+            Instantiate(missile, firePoint.position, transform.rotation);
         }
     }
 
