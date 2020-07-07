@@ -33,6 +33,7 @@ public class PlayerShip : MonoBehaviour
         {
             Instantiate(missile, firePoint.position, transform.rotation);
         }
+
     }
 
     private void PlayerMovement()
@@ -40,9 +41,6 @@ public class PlayerShip : MonoBehaviour
         // Playerの動き
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
-
-        //Debug.Log(x);
-        //Debug.Log(y);
 
         transform.position += new Vector3(x, y, 0) * Time.deltaTime * playerSpeed;
     }

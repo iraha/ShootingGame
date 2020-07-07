@@ -35,6 +35,7 @@ public class EnemyShip : MonoBehaviour
         {
             // Playerと当たった時にもExplosionFXが生成されるように設定
             Instantiate(explosionFX, collision.transform.position, transform.rotation);
+            FindObjectOfType<GameManagement>().GameOver();
             
         } // Enemyがmissileにぶつかった時のみAddscoreされる
         else if (collision.CompareTag("Missile") == true) 

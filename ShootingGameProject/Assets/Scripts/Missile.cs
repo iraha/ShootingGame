@@ -8,6 +8,8 @@ public class Missile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(0, 8f, 0) * Time.deltaTime;  
+        transform.position += new Vector3(0, 20f, 0) * Time.deltaTime;
+
+        Destroy(gameObject, 3f);
     }
 }
