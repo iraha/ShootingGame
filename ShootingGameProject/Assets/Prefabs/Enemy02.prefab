@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 378e6bf4636c24962ae4a4f3e03a4d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 5
+  enemySpeed: 2
   explosionFX: {fileID: 5032999540693090586, guid: 2ad2410d45ed543dc9cfbd8294fa0ee0,
     type: 3}
 --- !u!61 &1806531564466474351

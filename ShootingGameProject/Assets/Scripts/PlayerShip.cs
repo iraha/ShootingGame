@@ -42,6 +42,15 @@ public class PlayerShip : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
-        transform.position += new Vector3(x, y, 0) * Time.deltaTime * playerSpeed;
+        Vector3 validPosition = transform.position + new Vector3(x, y, 0) * Time.deltaTime * playerSpeed;
+
+        // playerの動ける範囲を制御
+        validPosition = new Vector3(
+            Mathf.Clamp(validPosition.x, -4.5f, 4.5f),
+            Mathf.Clamp(validPosition.y, -9f, 7f),
+            validPosition.z
+        );
+
+        transform.position = validPosition;
     }
 }

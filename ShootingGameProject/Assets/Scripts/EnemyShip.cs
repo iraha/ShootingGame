@@ -5,9 +5,11 @@ using UnityEngine;
 public class EnemyShip : MonoBehaviour
 {
 
-    [SerializeField]public float enemySpeed = 5f;
-
+    [SerializeField]public float enemySpeed = 2f;
     [SerializeField]public GameObject explosionFX;
+
+    float offset;
+
 
     // AddScore取得のため gameManagementを追加
     GameManagement gameManagement;
@@ -15,6 +17,8 @@ public class EnemyShip : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        offset = Random.Range(0, 2f*Mathf.PI);
         // gameManagementにヒエラルキー上のGemaMangement、Objectの中のGameManagementをGetComponentで取得
         gameManagement = GameObject.Find("GameManagement").GetComponent<GameManagement>();
     }
@@ -22,9 +26,16 @@ public class EnemyShip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        EnemyMovement();
 
-        transform.position -= new Vector3(0, enemySpeed * Time.deltaTime, 0);
-        
+    }
+
+    private void EnemyMovement()
+    {
+        transform.position -= new Vector3(
+            Mathf.Cos(Time.frameCount*0.03f + offset) * 0.03f,
+            enemySpeed * Time.deltaTime,
+            0);
     }
 
     // Enemyにぶつかるとあたり判定
